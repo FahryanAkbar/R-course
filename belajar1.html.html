@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R Studio</title>
+    <style>
+        body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        height: 100%;
+    }
+    .container {
+        background: url('/api/placeholder/1600/900') no-repeat center center fixed;
+        background-size: cover;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+    nav a {
+        margin-left: 20px;
+        text-decoration: none;
+        color: #333;
+    }
+    .contact-btn {
+        background-color: rgba(255,255,255,0.2);
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+    main {
+        display: flex;
+        padding: 50px;
+        color: white;
+    }
+    .content {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        color: #333;
+    }
+    .cta-buttons a {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-right: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+    .primary-btn {
+        background-color: rgba(0, 123, 255, 0.7);
+        color: white;
+    }
+    .primary-btn:hover {
+        background-color: rgba(0, 123, 255, 0.9);
+    }
+    .secondary-btn {
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        color: white;
+    }
+    .secondary-btn:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    .image-placeholder {
+        flex: 1;
+        background: url('/api/placeholder/800/600') no-repeat center center;
+        background-size: contain;
+        margin-left: 30px;
+    }
+    .courses {
+        display: flex;
+        justify-content: space-between;
+        padding: 50px;
+        flex-wrap: wrap;
+    }
+    .course-card {
+        width: 30%;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        cursor: pointer; 
+    }
+    .course-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+    .course-level {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: #ff6b6b;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+    }
+    .course-discount {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background: #ff6b6b;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+    }
+    .course-content {
+        padding: 20px;
+    }
+    .course-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    .course-author {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+    .course-price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .price {
+        font-weight: bold;
+        color: #333;
+    }
+    .buy-btn {
+        background: #4CAF50;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .features {
+        background-color: #f8f9fa;
+        padding: 60px 0;
+    }
+    .features-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    .features-title {
+        text-align: center;
+        font-size: 32px;
+        color: #333;
+        margin-bottom: 40px;
+    }
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        cursor: pointer; 
+    }
+    .feature-item {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .feature-item:hover {
+        transform: translateY(-5px);
+    }
+    .feature-icon {
+        font-size: 48px;
+        color: #007bff;
+        margin-bottom: 20px;
+        cursor: pointer; 
+    }
+    .feature-title {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+    .feature-description {
+        font-size: 16px;
+        color: #666;
+    }
+
+    /* === css tambahan === */
+
+    /* Menu Section */
+    .menu-container {
+        text-align: center;
+        padding: 40px 0;
+        background-color: #f4f4f4;
+        cursor: pointer; 
+    }
+
+    .menu-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .menu-nav {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        cursor: pointer; 
+    }
+
+    .menu-nav a {
+        text-decoration: none;
+        color: #333;
+        font-size: 1.2rem;
+        transition: color 0.3s;
+    }
+
+    .menu-nav a:hover {
+        color: #007bff;
+    }
+
+    /* Footer Section */
+    footer {
+        background-color: #333;
+        color: #fff;
+        padding: 40px 0;
+        text-align: left;
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-around;
+        padding-bottom: 20px;
+    }
+
+    .footer-about, .footer-links, .footer-contact {
+        width: 30%;
+        color: #fff;
+    }
+
+    .footer-about h3, .footer-links h3, .footer-contact h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #fff;
+        cursor: pointer; 
+    }
+
+    .footer-about p, .footer-links ul, .footer-contact p {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #fff;
+        cursor: pointer; 
+    }
+
+    .footer-links ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-links ul li {
+        margin-bottom: 8px;
+    }
+
+    .footer-links ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .footer-links ul li a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid #444;
+    }
+
+    .footer-bottom p {
+        font-size: 1rem;
+        color: #fff;
+    }
+
+    /* Menu Section */
+    .menu-container {
+        text-align: center;
+        padding: 40px 0;
+        background-color: #f4f4f4;
+    }
+
+    .menu-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    /* Menu grid layout */
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    /* Individual menu item */
+    .menu-item {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer; 
+    }
+
+    /* Menu item hover effect */
+    .menu-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Icon styles */
+    .menu-icon {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    /* Text in menu items */
+    .menu-item p {
+        font-size: 1.2rem;
+        color: #333;
+        margin: 0;
+    }
+
+    /* Responsive grid for smaller screens */
+    @media (max-width: 768px) {
+        .menu-grid {
+            grid-template-columns: repeat(2, 1fr); /* 2 items per row on smaller screens */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .menu-grid {
+            grid-template-columns: 1fr; /* 1 item per row on very small screens */
+        }
+    }
+    </style>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">R-studio</div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Fitur Website</a>
+                <a href="#">Projects</a>
+                <a href="#">Services</a>
+                <a href="#">About Us</a>
+                <a href="#" class="contact-btn">Hubungi Kami</a>
+            </nav>
+        </header>
+        <main>
+            <div class="content">
+                <h1>MILIKI PENGALAMAN KURSUS BELAJAR BAHASA PEMROGRAMAN PILIHAN ANDA.</h1>
+                <p>90% Pelanggan Kami Berhasil Meningkatkan Skill & Pengalaman Belajar Bersama R-Studio.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="primary-btn">Hubungi Kami</a>
+                    <a href="#" class="secondary-btn">Download PDF</a>
+                </div>
+            </div>
+            <div class="image-placeholder"></div>
+        </main>
+
+        <section class="courses">
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="C:\Users\ASUS\OneDrive\Pictures\Saved Pictures\keperluan\react.png" alt="Kursus React.js" style="width:400px; height: 220px;">
+                    <span class="course-level">Semua Level</span>
+                    <span class="course-discount">Promo 75% + 44%</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Bundling 4 Kursus: Belajar Framework React.js Dari Nol</h3>
+                    <p class="course-author">Oleh PZN</p>
+                    <div class="course-price">
+                        <span class="price">Rp231.000</span>
+                        <button class="buy-btn">Beli Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="c:\Users\ASUS\OneDrive\Pictures\Screenshots\Screenshot 2024-09-29 213739.png" alt="Kursus HTML CSS" style="width:400px; height:220px;">
+                    <span class="course-level">Semua Level</span>
+                    <span class="course-discount">Promo Merdeka 71%</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Bundling 2 Kursus: Belajar HTML CSS dan Javascript Dari Nol</h3>
+                    <p class="course-author">Oleh R Course</p>
+                    <div class="course-price">
+                        <span class="price">Rp75.000</span>
+                        <button class="buy-btn">Beli Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="C:\Users\ASUS\OneDrive\Pictures\Saved Pictures\keperluan\redis.png" alt="Kursus DBMS" style="width:400px; height:220px;">
+                    <span class="course-level">Semua Level</span>
+                    <span class="course-discount">Promo Merdeka 71%</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Bundling 2 Kursus: Belajar DBMS Dari Nol</h3>
+                    <p class="course-author">Oleh Fuadi</p>
+                    <div class="course-price">
+                        <span class="price">Rp105.000</span>
+                        <button class="buy-btn">Beli Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="c:\Users\ASUS\OneDrive\Pictures\Screenshots\Screenshot 2024-09-29 214048.png" alt="Kursus DBMS" style="width:400px; height:220px;">
+                    <span class="course-level">Semua Level</span>
+                    <span class="course-discount">Promo Merdeka 71%</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Bundling Khusus 1: Belajar Framework Svelte.js</h3>
+                    <p class="course-author">Oleh Fuadi</p>
+                    <div class="course-price">
+                        <span class="price">Rp345.000</span>
+                        <button class="buy-btn">Beli Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="c:\Users\ASUS\OneDrive\Pictures\Screenshots\Screenshot 2024-09-29 214155.png" alt="Kursus DBMS" style="width:400px; height:220px;">
+                    <span class="course-level">Semua Level</span>
+                    <span class="course-discount">Promo Merdeka 71%</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Bundling Khusus 2: Belajar Framework Vue.js</h3>
+                    <p class="course-author">Oleh Fuadi</p>
+                    <div class="course-price">
+                        <span class="price">Rp300.000</span>
+                        <button class="buy-btn">Beli Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="c:\Users\ASUS\OneDrive\Pictures\Screenshots\Screenshot 2024-09-29 214252.png" alt="Kursus DBMS" style="width:400px; height:220px;">
+                    <span class="course-level">Semua Level</span>
+                    <span class="course-discount">Promo Merdeka 71%</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Bundling Khusus 3: Belajar Framework Laravel</h3>
+                    <p class="course-author">Oleh Fuadi</p>
+                    <div class="course-price">
+                        <span class="price">Rp205.000</span>
+                        <button class="buy-btn">Beli Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="features">
+            <div class="features-container">
+                <h2 class="features-title">Kenapa Belajar di R Studio?</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎓</div>
+                        <h3 class="feature-title">Belajar dari Ahli</h3>
+                        <p class="feature-description">Dapatkan pengetahuan langsung dari para profesional dan praktisi industri terkemuka.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🏆</div>
+                        <h3 class="feature-title">Sertifikat Profesional</h3>
+                        <p class="feature-description">Dapatkan sertifikat yang diakui industri setelah menyelesaikan kursus.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔄</div>
+                        <h3 class="feature-title">Akses Seumur Hidup</h3>
+                        <p class="feature-description">Nikmati akses tanpa batas ke materi kursus dan pembaruan konten.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💼</div>
+                        <h3 class="feature-title">Proyek Praktis</h3>
+                        <p class="feature-description">Terapkan pengetahuan Anda dalam proyek dunia nyata untuk membangun portofolio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu">
+            <div class="menu-container">
+                <h2 class="menu-title">Jelajahi Lebih Banyak</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-icon">📚</div>
+                        <p>Kursus Terbaru</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon">🔥</div>
+                        <p>Kursus Populer</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon">💰</div>
+                        <p>Kursus Diskon</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon">✍️</div>
+                        <p>Blog</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon">💬</div>
+                        <p>Testimoni</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon">📅</div>
+                        <p>Acara Mendatang</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon">🛠️</div>
+                        <p>Alat & Sumber Daya</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon">🎁</div>
+                        <p>Bonus & Hadiah</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footer-container">
+                <div class="footer-about">
+                    <h3>Tentang Kami</h3>
+                    <p>R Studio adalah platform belajar online yang menyediakan berbagai kursus dalam bahasa pemrograman, framework, dan pengembangan web.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Link Terkait</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Hubungi Kami</h3>
+                    <p>Email: info@R-studio.com</p>
+                    <p>Telepon: +62 8823-12230=-9983</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 R Studio. All Rights Reserved.</p>
+            </div>
+        </footer>
+        
+    </div>
+</body>
+</html>
